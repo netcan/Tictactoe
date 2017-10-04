@@ -46,7 +46,7 @@ class Board(object):
             length = size / (2 * np.sin(np.pi / 4)) - 20
             cpx, cpy = size / 2, size / 2
             for alpha in np.arange(np.pi / 4, np.pi * 2, np.pi / 2):
-                pygame.draw.aaline(chess, line_color, [cpx + length * np.cos(alpha), cpy + length * np.sin(alpha)], [cpx, cpy])
+                pygame.draw.line(chess, line_color, [cpx + length * np.cos(alpha), cpy + length * np.sin(alpha)], [cpx, cpy], self.line_width)
         return chess
 
     def get_board(self):
@@ -69,7 +69,7 @@ def main():
                 sys.exit()
         board.draw_lines()
         screen.blit(board.get_board(), (0, 0))
-        # screen.blit(board.circle, (0, 0))
+        screen.blit(board.circle, (160, 0))
         screen.blit(board.cross, (0, 0))
         pygame.display.flip()
 
